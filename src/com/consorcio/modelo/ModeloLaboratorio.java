@@ -19,13 +19,13 @@ public class ModeloLaboratorio {
 		try {
 			manager.getTransaction().begin();
 			manager.persist(laboratorio);
+			manager.flush();
 			manager.getTransaction().commit();
 		} catch (Exception e) {
 			manager.getTransaction().rollback();
 			e.printStackTrace();
 		} finally {
 			manager.close();
-			fabrica.close();
 		}
 	}
 	
